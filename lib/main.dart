@@ -39,7 +39,17 @@ class _MyHomePageState extends State<MyHomePage> {
     target: LatLng(37.42796133580664, -122.085749655962),
     zoom: 14.4746,
   );
-
+Polygon _polygon = Polygon(polygonId:PolygonId( "kuch v"),
+         points: [
+           LatLng(38.46796133580664, -122.105749655962),
+           LatLng(37.76796133580664, -122.705749655962),
+           LatLng(36.46796133580664, -122.805749655962),
+          LatLng(35.46796133580664, -122.905749655962),
+         ],
+         strokeColor: Colors.amber,
+         strokeWidth: 5,
+         fillColor: Colors.transparent,
+);
   static final CameraPosition _kLake = CameraPosition(
       bearing: 192.8334901395799,
       target: LatLng(37.43296265331129, -122.08832357078792),
@@ -69,6 +79,9 @@ class _MyHomePageState extends State<MyHomePage> {
            width: MediaQuery.of(context).size.width,
            height: MediaQuery.of(context).size.height,
            child: GoogleMap(
+             polygons: {
+               _polygon
+             },
              mapToolbarEnabled: false,
         mapType: MapType.normal,
         initialCameraPosition: _kGooglePlex,
